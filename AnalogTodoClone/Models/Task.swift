@@ -7,11 +7,16 @@
 
 import Foundation
 
-enum Action {
+enum Action: Codable {
     case none, inProgress, tonight, tomorrow, complete
 }
 
-struct Task {
+struct Task: Identifiable, Codable, Equatable {
+    var id = UUID()
     var name: String
     var action: Action = .none
+    
+    static func ==(lhs: Task, rhs: Task) -> Bool {
+        lhs.id == rhs.id
+    }
 }

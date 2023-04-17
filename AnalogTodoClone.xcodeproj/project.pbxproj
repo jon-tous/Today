@@ -13,6 +13,11 @@
 		15DBBD6A29EB2F6F004C3E9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DBBD6929EB2F6F004C3E9E /* Preview Assets.xcassets */; };
 		15DBBD7429EB3355004C3E9E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD7329EB3355004C3E9E /* Task.swift */; };
 		15DBBD7629EB3420004C3E9E /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD7529EB3420004C3E9E /* TaskList.swift */; };
+		15DBBD7C29EBAD95004C3E9E /* TomorrowShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD7B29EBAD95004C3E9E /* TomorrowShape.swift */; };
+		15DBBD7E29EBB14A004C3E9E /* NoneShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD7D29EBB14A004C3E9E /* NoneShape.swift */; };
+		15DBBD8029EBB214004C3E9E /* TonightShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD7F29EBB214004C3E9E /* TonightShape.swift */; };
+		15DBBD8429EBB43C004C3E9E /* InProgressShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD8329EBB43C004C3E9E /* InProgressShape.swift */; };
+		15DBBD8629EBBC94004C3E9E /* ShapeForAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD8529EBBC94004C3E9E /* ShapeForAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,12 @@
 		15DBBD6929EB2F6F004C3E9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15DBBD7329EB3355004C3E9E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		15DBBD7529EB3420004C3E9E /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		15DBBD7929EB6B80004C3E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		15DBBD7B29EBAD95004C3E9E /* TomorrowShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomorrowShape.swift; sourceTree = "<group>"; };
+		15DBBD7D29EBB14A004C3E9E /* NoneShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneShape.swift; sourceTree = "<group>"; };
+		15DBBD7F29EBB214004C3E9E /* TonightShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonightShape.swift; sourceTree = "<group>"; };
+		15DBBD8329EBB43C004C3E9E /* InProgressShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressShape.swift; sourceTree = "<group>"; };
+		15DBBD8529EBBC94004C3E9E /* ShapeForAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeForAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +66,7 @@
 		15DBBD6129EB2F6E004C3E9E /* AnalogTodoClone */ = {
 			isa = PBXGroup;
 			children = (
+				15DBBD7929EB6B80004C3E9E /* Info.plist */,
 				15DBBD6229EB2F6E004C3E9E /* AnalogTodoCloneApp.swift */,
 				15DBBD7029EB331A004C3E9E /* Views */,
 				15DBBD7229EB333A004C3E9E /* ViewModels */,
@@ -77,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				15DBBD6429EB2F6E004C3E9E /* ContentView.swift */,
+				15DBBD7A29EBAD69004C3E9E /* Shapes */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -95,6 +108,18 @@
 				15DBBD7529EB3420004C3E9E /* TaskList.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		15DBBD7A29EBAD69004C3E9E /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				15DBBD7B29EBAD95004C3E9E /* TomorrowShape.swift */,
+				15DBBD7D29EBB14A004C3E9E /* NoneShape.swift */,
+				15DBBD7F29EBB214004C3E9E /* TonightShape.swift */,
+				15DBBD8329EBB43C004C3E9E /* InProgressShape.swift */,
+				15DBBD8529EBBC94004C3E9E /* ShapeForAction.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +195,12 @@
 				15DBBD7629EB3420004C3E9E /* TaskList.swift in Sources */,
 				15DBBD6529EB2F6E004C3E9E /* ContentView.swift in Sources */,
 				15DBBD7429EB3355004C3E9E /* Task.swift in Sources */,
+				15DBBD8029EBB214004C3E9E /* TonightShape.swift in Sources */,
+				15DBBD8629EBBC94004C3E9E /* ShapeForAction.swift in Sources */,
+				15DBBD7E29EBB14A004C3E9E /* NoneShape.swift in Sources */,
+				15DBBD8429EBB43C004C3E9E /* InProgressShape.swift in Sources */,
 				15DBBD6329EB2F6E004C3E9E /* AnalogTodoCloneApp.swift in Sources */,
+				15DBBD7C29EBAD95004C3E9E /* TomorrowShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +332,7 @@
 				DEVELOPMENT_TEAM = A4J2ZGNF23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = AnalogTodoClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -331,7 +361,7 @@
 				DEVELOPMENT_TEAM = A4J2ZGNF23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = AnalogTodoClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
