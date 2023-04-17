@@ -28,6 +28,8 @@ struct ContentView: View {
                         }
                         
                         Text(task.name)
+//                            .font(Font.custom("Avenir", size: 18))
+                            .strikethrough(task.action == Action.complete)
                             .padding(.leading)
                     }
                     .contextMenu {
@@ -43,7 +45,7 @@ struct ContentView: View {
                     todayTasks.tasks.move(fromOffsets: indexSet, toOffset: index)
                     todayTasks.save()
                 }
-                .padding(.vertical, 10)
+                .padding(.vertical, 5)
                 .listRowSeparator(.hidden)
                 
                 ForEach(todayTasks.tasks.count..<TaskList.taskLimit, id: \.self) { index in
@@ -103,7 +105,11 @@ struct ContentView: View {
     }
     
     var dateHeading: some View {
-        Text(Date().formatted(date: .abbreviated, time: .omitted))
+        Text(
+            Date().formatted(Date.FormatStyle().weekday(.abbreviated))
+            + " " + Date().formatted(Date.FormatStyle().month(.abbreviated))
+            + " " + Date().formatted(Date.FormatStyle().day(.defaultDigits))
+        )
             .font(.callout)
             .foregroundColor(.secondary)
     }
