@@ -24,7 +24,7 @@ import Foundation
     }
     
     func addTask(_ newTask: Task) {
-        guard tasks.count < 10 else {
+        guard tasks.count < TaskList.taskLimit else {
             print("Already 10 tasks - did not save new task.")
             return
         }

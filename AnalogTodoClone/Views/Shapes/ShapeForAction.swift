@@ -35,6 +35,11 @@ struct ShapeForAction: View {
             Circle()
                 .fill(.secondary.opacity(1.3))
                 .frame(width: 32, height: 32)
+        case .event:
+            EventShape()
+                .stroke(lineWidth: 1)
+                .foregroundColor(.secondary.opacity(1.3))
+                .frame(width: 32, height: 32)
         }
         
     }
@@ -73,7 +78,11 @@ struct ShapeForAction_Previews: PreviewProvider {
                 ShapeForAction_Previews.underlyingCircle
                 ShapeForAction(action: .complete)
             }
+            
+            ZStack {
+                ShapeForAction_Previews.underlyingCircle
+                ShapeForAction(action: .event)
+            }
         }
-        
     }
 }

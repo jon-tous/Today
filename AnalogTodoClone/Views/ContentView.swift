@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var todayTasks = TaskList()
     @State private var taskInput = ""
+    @FocusState private var inputFocus: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +29,6 @@ struct ContentView: View {
                         }
                         
                         Text(task.name)
-//                            .font(Font.custom("Avenir", size: 18))
                             .strikethrough(task.action == Action.complete)
                             .padding(.leading)
                     }
@@ -37,6 +37,7 @@ struct ContentView: View {
                         Button("In Progress") { markTaskInProgress(task) }
                         Button("Tonight") { markTaskTonight(task) }
                         Button("Tomorrow") { markTaskTomorrow(task) }
+                        Button("Event") { markTaskEvent(task) }
                         Button("To Do") { markTaskNoneAction(task) }
                     }
                 }
@@ -52,7 +53,7 @@ struct ContentView: View {
                     if index == todayTasks.tasks.count {
                         HStack {
                             Button {
-                                addTask()
+                                inputFocus.toggle()
                             } label: {
                                 ZStack {
                                     Circle()
@@ -63,10 +64,17 @@ struct ContentView: View {
                                         .frame(maxWidth: 32)
                                     Image(systemName: "plus")
                                         .foregroundColor(.white)
+                                        .rotationEffect(inputFocus ? Angle(degrees: 45) : .zero)
+                                        .animation(.default, value: inputFocus)
                                 }
                             }
                             
-                            TextField("Task \(todayTasks.tasks.count + 1)", text: $taskInput, onCommit: addTask)
+                            TextField("Task \(todayTasks.tasks.count + 1)", text: $taskInput)
+                                .submitLabel(.done)
+                                .focused($inputFocus)
+                                .onSubmit {
+                                    addTask()
+                                }
                                 .padding(.leading)
                         }
                     } else {
@@ -88,6 +96,7 @@ struct ContentView: View {
                 }
                 .listRowSeparator(.hidden)
                 .padding(.vertical, 5)
+//                .scrollDismissesKeyboard(.interactively)
             }
             .listStyle(.plain)
         }
@@ -139,7 +148,7 @@ struct ContentView: View {
         let newTask = Task(name: taskInput)
         todayTasks.addTask(newTask)
         
-        taskInput = "" // TODO: debug this isn't clearing the input
+        taskInput = ""
     }
     
     func completeTask(_ task: Task) {
@@ -171,6 +180,15 @@ struct ContentView: View {
 
     func markTaskTomorrow(_ task: Task) {
         let updatedTask = Task(id: task.id, name: task.name, action: .tomorrow)
+        
+        if let index = todayTasks.tasks.firstIndex(of: task) {
+            todayTasks.tasks[index] = updatedTask
+            todayTasks.save()
+        }
+    }
+    
+    func markTaskEvent(_ task: Task) {
+        let updatedTask = Task(id: task.id, name: task.name, action: .event)
         
         if let index = todayTasks.tasks.firstIndex(of: task) {
             todayTasks.tasks[index] = updatedTask
