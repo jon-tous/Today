@@ -44,7 +44,16 @@ struct ContentView: View {
                         Button(role: .destructive) { deleteTask(task) } label: {
                             Text("Delete Task")
                         }
-
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button {
+                            completeTask(task)
+                        } label: {
+                            Text("Complete")
+                        }
+                        .tint(Color.secondary
+                            .opacity(1.0 - Double(todayTasks.tasks.firstIndex(of: task) ?? 0) / 10)
+                        )
                     }
                 }
                 .onDelete(perform: removeRows)
@@ -175,7 +184,9 @@ struct ContentView: View {
     }
     
     func completeTask(_ task: Task) {
-        let updatedTask = Task(id: task.id, name: task.name, action: .complete)
+        // If the task was incomplete, marks as complete. If the task was complete, changes back to none.
+        let wasComplete = task.action == .complete
+        let updatedTask = Task(id: task.id, name: task.name, action: wasComplete ? .none : .complete)
         
         if let index = todayTasks.tasks.firstIndex(of: task) {
             todayTasks.tasks[index] = updatedTask
