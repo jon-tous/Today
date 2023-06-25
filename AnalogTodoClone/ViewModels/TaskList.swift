@@ -90,4 +90,9 @@ import Foundation
         let updatedTask = Task(id: task.id, name: task.name, action: .none)
         update(task, to: updatedTask)
     }
+    
+    func markTaskPriority(_ task: Task) {
+        let updatedTask = Task(id: task.id, name: task.name, action: .priority)
+        update(task, to: updatedTask)
+    }
 }

@@ -39,6 +39,7 @@ struct ContentView: View {
                         Button("Tonight") { todayTasks.markTaskTonight(task) }
                         Button("Tomorrow") { todayTasks.markTaskTomorrow(task) }
                         Button("Event") { todayTasks.markTaskEvent(task) }
+                        Button("Priority") { todayTasks.markTaskPriority(task) }
                         Button("To Do") { todayTasks.markTaskNoneAction(task) }
                         Divider()
                         Button(role: .destructive) { todayTasks.deleteTask(task) } label: {

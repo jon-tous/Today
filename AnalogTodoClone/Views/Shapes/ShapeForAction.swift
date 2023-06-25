@@ -40,8 +40,11 @@ struct ShapeForAction: View {
                 .stroke(lineWidth: 1)
                 .foregroundColor(.secondary.opacity(1.3))
                 .frame(width: 32, height: 32)
+        case .priority:
+            PriorityShape()
+                .foregroundColor(.secondary.opacity(1.3))
+                .frame(width: 32, height: 32)
         }
-        
     }
 }
 
@@ -54,6 +57,7 @@ struct ShapeForAction_Previews: PreviewProvider {
     }
     static var previews: some View {
         VStack(spacing: 40) {
+//        HStack(spacing: 20) {
             ZStack {
                 ShapeForAction_Previews.underlyingCircle
                 ShapeForAction(action: .none)
@@ -68,7 +72,7 @@ struct ShapeForAction_Previews: PreviewProvider {
                 ShapeForAction_Previews.underlyingCircle
                 ShapeForAction(action: .tonight)
             }
-            
+
             ZStack {
                 ShapeForAction_Previews.underlyingCircle
                 ShapeForAction(action: .tomorrow)
@@ -82,6 +86,11 @@ struct ShapeForAction_Previews: PreviewProvider {
             ZStack {
                 ShapeForAction_Previews.underlyingCircle
                 ShapeForAction(action: .event)
+            }
+            
+            ZStack {
+                ShapeForAction_Previews.underlyingCircle
+                ShapeForAction(action: .priority)
             }
         }
     }

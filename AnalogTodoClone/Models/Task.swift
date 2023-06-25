@@ -8,7 +8,7 @@
 import Foundation
 
 enum Action: Codable {
-    case none, inProgress, tonight, tomorrow, complete, event
+    case none, inProgress, tonight, tomorrow, complete, event, priority
 }
 
 struct Task: Identifiable, Codable, Equatable {
