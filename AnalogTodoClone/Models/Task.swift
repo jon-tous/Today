@@ -1,6 +1,6 @@
 //
 //  Task.swift
-//  AnalogTodoClone
+//  AnalogTodo
 //
 //  Created by Jon Toussaint on 4/15/23.
 //
@@ -18,5 +18,9 @@ struct Task: Identifiable, Codable, Equatable {
     
     static func ==(lhs: Task, rhs: Task) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    static var example: Task {
+        Task(name: "Do the dishes", action: .inProgress)
     }
 }

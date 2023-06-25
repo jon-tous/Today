@@ -1,6 +1,6 @@
 //
-//  AnalogTodoCloneApp.swift
-//  AnalogTodoClone
+//  AnalogTodoApp.swift
+//  AnalogTodo
 //
 //  Created by Jon Toussaint on 4/15/23.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct AnalogTodoCloneApp: App {
+struct AnalogTodoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

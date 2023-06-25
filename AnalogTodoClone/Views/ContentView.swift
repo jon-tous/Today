@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  AnalogTodoClone
+//  AnalogTodo
 //
 //  Created by Jon Toussaint on 4/15/23.
 //
@@ -14,24 +14,15 @@ struct ContentView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            headerRow
-                .padding(.horizontal)
+            HeaderView()
             Spacer()
+            
+            // MARK: Existing tasks
             List {
                 ForEach(todayTasks.tasks) { task in
                     HStack {
-                        ZStack {
-                            Circle()
-                                .stroke()
-                                .foregroundColor(.secondary)
-                                .frame(width: 32)
-                            ShapeForAction(action: task.action)
-                        }
-                        
-                        Text(task.name)
-                            .font(Font.custom("Avenir", size: 17, relativeTo: .body))
-                            .strikethrough(task.action == Action.complete)
-                            .padding(.leading)
+                        taskCircle(for: task)
+                        taskDisplayText(for: task)
                     }
                     .contextMenu {
                         Button("Complete") { todayTasks.completeTask(task) }
@@ -42,110 +33,95 @@ struct ContentView: View {
                         Button("Priority") { todayTasks.markTaskPriority(task) }
                         Button("To Do") { todayTasks.markTaskNoneAction(task) }
                         Divider()
-                        Button(role: .destructive) { todayTasks.deleteTask(task) } label: {
-                            Text("Delete Task")
-                        }
+                        Button(role: .destructive) { todayTasks.deleteTask(task) } label: { Text("Delete Task") }
                     }
                     .swipeActions(edge: .leading) {
                         Button { todayTasks.completeTask(task) } label: { Text("Complete") }
-                            .tint(Color.secondary
-                                .opacity(1.0 - Double(todayTasks.tasks.firstIndex(of: task) ?? 0) / 10)
-                            )
+                            .tint(Color.secondary.adjustOpacity(forIndex: todayTasks.tasks.firstIndex(of: task) ?? 0))
                     }
                 }
-                .onDelete(perform: todayTasks.removeRows)
-                .onMove { indexSet, index in
-                    todayTasks.tasks.move(fromOffsets: indexSet, toOffset: index)
-                    todayTasks.save()
-                }
+                .onDelete(perform: removeRows)
+                .onMove(perform: moveRows)
                 .padding(.vertical, 5)
                 .listRowSeparator(.hidden)
                 
+                // MARK: Empty task slots
                 ForEach(todayTasks.tasks.count..<TaskList.taskLimit, id: \.self) { index in
                     if index == todayTasks.tasks.count {
                         HStack {
-                            Button {
-                                inputFocus.toggle()
-                            } label: {
-                                ZStack {
-                                    Circle()
-                                        .foregroundColor(
-                                            .secondary
-                                                .opacity(1.0 - Double(todayTasks.tasks.count)/10)
-                                        )
-                                        .frame(width: 32)
-                                    Image(systemName: "plus")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(.white)
-                                        .rotationEffect(inputFocus ? Angle(degrees: 45) : .zero)
-                                        .animation(.default, value: inputFocus)
-                                }
-                            }
-                            
-                            TextField("Task \(todayTasks.tasks.count + 1)", text: $taskInput)
-                                .font(Font.custom("Avenir", size: 17, relativeTo: .body))
-                                .submitLabel(.done)
-                                .focused($inputFocus)
-                                .onSubmit {
-                                    todayTasks.addTask(taskInput)
-                                    taskInput = ""
-                                }
-                                .padding(.leading)
+                            Button { inputFocus.toggle() } label: { addTaskCircle }
+                            taskTextField
                         }
                     } else {
-                        HStack {
-                            Circle()
-                                .foregroundColor(
-                                    .secondary
-                                        .opacity(1 - Double(index) / 10)
-                                )
-                                .foregroundColor(.secondary)
-                                .frame(width: 32)
-                            Text("Task \(index + 1)")
-                                .font(Font.custom("Avenir", size: 17, relativeTo: .body))
-                                .padding(.leading)
-                                
-                        }
-                        .foregroundColor(.secondary.opacity(0.4))
+                        EmptyTaskRowView(index: index)
                     }
-                    
                 }
                 .listRowSeparator(.hidden)
                 .padding(.vertical, 5)
-//                .scrollDismissesKeyboard(.interactively)
             }
             .listStyle(.plain)
         }
         .padding()
         .dynamicTypeSize(...DynamicTypeSize.accessibility1)
-        .onAppear {
-            todayTasks.fetchData()
+        .onAppear { todayTasks.fetchData() }
+    }
+    
+    // MARK: Subviews for existing tasks
+    
+    func taskCircle(for task: Task) -> some View {
+        ZStack {
+            Circle()
+                .stroke()
+                .foregroundColor(.secondary)
+                .frame(width: 32)
+            ShapeForAction(action: task.action)
         }
-        
     }
     
-    var todayHeading: some View {
-        Text("Today")
-            .font(Font.custom("Avenir Heavy", size: 34, relativeTo: .largeTitle))
-            .bold()
+    func taskDisplayText(for task: Task) -> some View {
+        Text(task.name)
+            .customFont(relativeTo: .body)
+            .strikethrough(task.action == Action.complete)
+            .padding(.leading)
     }
     
-    var dateHeading: some View {
-        Text(
-            Date().formatted(Date.FormatStyle().weekday(.abbreviated))
-            + " " + Date().formatted(Date.FormatStyle().month(.abbreviated))
-            + " " + Date().formatted(Date.FormatStyle().day(.defaultDigits))
-        )
-        .font(Font.custom("Avenir", size: 16, relativeTo: .callout))
-        .foregroundColor(.secondary)
-    }
+    // MARK: Subviews for adding a task
     
-    var headerRow: some View {
-        HStack {
-            todayHeading
-            Spacer()
-            dateHeading
+    var addTaskCircle: some View {
+        ZStack {
+            Circle()
+                .foregroundColor(.secondary.adjustOpacity(forIndex: todayTasks.tasks.count))
+                .frame(width: 32)
+            Image(systemName: "plus")
+                .font(.system(size: 20))
+                .foregroundColor(.white)
+                .rotationEffect(inputFocus ? Angle(degrees: 45) : .zero)
+                .animation(.default, value: inputFocus)
         }
+    }
+    
+    var taskTextField: some View {
+        TextField("Task \(todayTasks.tasks.count + 1)", text: $taskInput)
+            .customFont(relativeTo: .body)
+            .padding(.leading)
+            .submitLabel(.done)
+            .focused($inputFocus)
+            .onSubmit {
+                todayTasks.addTask(taskInput)
+                taskInput = ""
+            }
+    }
+    
+    // MARK: View functions that affect task data
+    
+    // Remove rows from view (and task list)
+    func removeRows(at offsets: IndexSet) {
+        todayTasks.deleteTasks(at: offsets)
+    }
+    
+    // Reorder rows in view (and task list)
+    func moveRows(indexSet: IndexSet, index: Int) {
+        todayTasks.reorderTasks(fromOffsets: indexSet, toOffset: index)
     }
 }
 

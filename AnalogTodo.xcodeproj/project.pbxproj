@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		150C1E132A4810520022671F /* PriorityShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C1E122A4810520022671F /* PriorityShape.swift */; };
+		150C1E152A48C5F40022671F /* Color+AdjustOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C1E142A48C5F30022671F /* Color+AdjustOpacity.swift */; };
+		150C1E172A48CEF40022671F /* View+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C1E162A48CEF40022671F /* View+CustomFont.swift */; };
+		150C1E192A48D5A30022671F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C1E182A48D5A30022671F /* HeaderView.swift */; };
+		150C1E1B2A48DA110022671F /* EmptyTaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C1E1A2A48DA110022671F /* EmptyTaskRowView.swift */; };
 		157E3F3629EED782006BA66C /* EventShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E3F3529EED782006BA66C /* EventShape.swift */; };
-		15DBBD6329EB2F6E004C3E9E /* AnalogTodoCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD6229EB2F6E004C3E9E /* AnalogTodoCloneApp.swift */; };
+		15DBBD6329EB2F6E004C3E9E /* AnalogTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD6229EB2F6E004C3E9E /* AnalogTodoApp.swift */; };
 		15DBBD6529EB2F6E004C3E9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD6429EB2F6E004C3E9E /* ContentView.swift */; };
 		15DBBD6729EB2F6F004C3E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DBBD6629EB2F6F004C3E9E /* Assets.xcassets */; };
 		15DBBD6A29EB2F6F004C3E9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DBBD6929EB2F6F004C3E9E /* Preview Assets.xcassets */; };
@@ -24,9 +28,13 @@
 
 /* Begin PBXFileReference section */
 		150C1E122A4810520022671F /* PriorityShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityShape.swift; sourceTree = "<group>"; };
+		150C1E142A48C5F30022671F /* Color+AdjustOpacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AdjustOpacity.swift"; sourceTree = "<group>"; };
+		150C1E162A48CEF40022671F /* View+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CustomFont.swift"; sourceTree = "<group>"; };
+		150C1E182A48D5A30022671F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		150C1E1A2A48DA110022671F /* EmptyTaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTaskRowView.swift; sourceTree = "<group>"; };
 		157E3F3529EED782006BA66C /* EventShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventShape.swift; sourceTree = "<group>"; };
-		15DBBD5F29EB2F6E004C3E9E /* AnalogTodoClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnalogTodoClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		15DBBD6229EB2F6E004C3E9E /* AnalogTodoCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogTodoCloneApp.swift; sourceTree = "<group>"; };
+		15DBBD5F29EB2F6E004C3E9E /* AnalogTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnalogTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15DBBD6229EB2F6E004C3E9E /* AnalogTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogTodoApp.swift; sourceTree = "<group>"; };
 		15DBBD6429EB2F6E004C3E9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15DBBD6629EB2F6F004C3E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15DBBD6929EB2F6F004C3E9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -62,7 +70,7 @@
 		15DBBD6029EB2F6E004C3E9E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15DBBD5F29EB2F6E004C3E9E /* AnalogTodoClone.app */,
+				15DBBD5F29EB2F6E004C3E9E /* AnalogTodo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				15DBBD7929EB6B80004C3E9E /* Info.plist */,
-				15DBBD6229EB2F6E004C3E9E /* AnalogTodoCloneApp.swift */,
+				15DBBD6229EB2F6E004C3E9E /* AnalogTodoApp.swift */,
 				15DBBD7029EB331A004C3E9E /* Views */,
 				15DBBD7229EB333A004C3E9E /* ViewModels */,
 				15DBBD7129EB3329004C3E9E /* Models */,
@@ -93,6 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				15DBBD6429EB2F6E004C3E9E /* ContentView.swift */,
+				150C1E182A48D5A30022671F /* HeaderView.swift */,
+				150C1E1A2A48DA110022671F /* EmptyTaskRowView.swift */,
+				150C1E142A48C5F30022671F /* Color+AdjustOpacity.swift */,
+				150C1E162A48CEF40022671F /* View+CustomFont.swift */,
 				15DBBD7A29EBAD69004C3E9E /* Shapes */,
 			);
 			path = Views;
@@ -131,9 +143,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		15DBBD5E29EB2F6E004C3E9E /* AnalogTodoClone */ = {
+		15DBBD5E29EB2F6E004C3E9E /* AnalogTodo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "AnalogTodoClone" */;
+			buildConfigurationList = 15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "AnalogTodo" */;
 			buildPhases = (
 				15DBBD5B29EB2F6E004C3E9E /* Sources */,
 				15DBBD5C29EB2F6E004C3E9E /* Frameworks */,
@@ -143,9 +155,9 @@
 			);
 			dependencies = (
 			);
-			name = AnalogTodoClone;
+			name = AnalogTodo;
 			productName = AnalogTodoClone;
-			productReference = 15DBBD5F29EB2F6E004C3E9E /* AnalogTodoClone.app */;
+			productReference = 15DBBD5F29EB2F6E004C3E9E /* AnalogTodo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -163,7 +175,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "AnalogTodoClone" */;
+			buildConfigurationList = 15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "AnalogTodo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -176,7 +188,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15DBBD5E29EB2F6E004C3E9E /* AnalogTodoClone */,
+				15DBBD5E29EB2F6E004C3E9E /* AnalogTodo */,
 			);
 		};
 /* End PBXProject section */
@@ -198,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150C1E1B2A48DA110022671F /* EmptyTaskRowView.swift in Sources */,
 				15DBBD7629EB3420004C3E9E /* TaskList.swift in Sources */,
 				15DBBD6529EB2F6E004C3E9E /* ContentView.swift in Sources */,
 				15DBBD7429EB3355004C3E9E /* Task.swift in Sources */,
@@ -207,8 +220,11 @@
 				15DBBD7E29EBB14A004C3E9E /* NoneShape.swift in Sources */,
 				157E3F3629EED782006BA66C /* EventShape.swift in Sources */,
 				15DBBD8429EBB43C004C3E9E /* InProgressShape.swift in Sources */,
-				15DBBD6329EB2F6E004C3E9E /* AnalogTodoCloneApp.swift in Sources */,
+				15DBBD6329EB2F6E004C3E9E /* AnalogTodoApp.swift in Sources */,
+				150C1E172A48CEF40022671F /* View+CustomFont.swift in Sources */,
+				150C1E152A48C5F40022671F /* Color+AdjustOpacity.swift in Sources */,
 				15DBBD7C29EBAD95004C3E9E /* TomorrowShape.swift in Sources */,
+				150C1E192A48D5A30022671F /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +366,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.AnalogTodoClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.AnalogTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -379,7 +395,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.AnalogTodoClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.AnalogTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -390,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "AnalogTodoClone" */ = {
+		15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "AnalogTodo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15DBBD6B29EB2F6F004C3E9E /* Debug */,
@@ -399,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "AnalogTodoClone" */ = {
+		15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "AnalogTodo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15DBBD6E29EB2F6F004C3E9E /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  TaskList.swift
-//  AnalogTodoClone
+//  AnalogTodo
 //
 //  Created by Jon Toussaint on 4/15/23.
 //
@@ -54,8 +54,13 @@ import Foundation
         save()
     }
     
-    func removeRows(at offsets: IndexSet) {
+    func deleteTasks(at offsets: IndexSet) {
         tasks.remove(atOffsets: offsets)
+        save()
+    }
+    
+    func reorderTasks(fromOffsets indexSet: IndexSet, toOffset index: Int) {
+        tasks.move(fromOffsets: indexSet, toOffset: index)
         save()
     }
     
