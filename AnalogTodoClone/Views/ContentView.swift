@@ -34,29 +34,25 @@ struct ContentView: View {
                             .padding(.leading)
                     }
                     .contextMenu {
-                        Button("Complete") { completeTask(task) }
-                        Button("In Progress") { markTaskInProgress(task) }
-                        Button("Tonight") { markTaskTonight(task) }
-                        Button("Tomorrow") { markTaskTomorrow(task) }
-                        Button("Event") { markTaskEvent(task) }
-                        Button("To Do") { markTaskNoneAction(task) }
+                        Button("Complete") { todayTasks.completeTask(task) }
+                        Button("In Progress") { todayTasks.markTaskInProgress(task) }
+                        Button("Tonight") { todayTasks.markTaskTonight(task) }
+                        Button("Tomorrow") { todayTasks.markTaskTomorrow(task) }
+                        Button("Event") { todayTasks.markTaskEvent(task) }
+                        Button("To Do") { todayTasks.markTaskNoneAction(task) }
                         Divider()
-                        Button(role: .destructive) { deleteTask(task) } label: {
+                        Button(role: .destructive) { todayTasks.deleteTask(task) } label: {
                             Text("Delete Task")
                         }
                     }
                     .swipeActions(edge: .leading) {
-                        Button {
-                            completeTask(task)
-                        } label: {
-                            Text("Complete")
-                        }
-                        .tint(Color.secondary
-                            .opacity(1.0 - Double(todayTasks.tasks.firstIndex(of: task) ?? 0) / 10)
-                        )
+                        Button { todayTasks.completeTask(task) } label: { Text("Complete") }
+                            .tint(Color.secondary
+                                .opacity(1.0 - Double(todayTasks.tasks.firstIndex(of: task) ?? 0) / 10)
+                            )
                     }
                 }
-                .onDelete(perform: removeRows)
+                .onDelete(perform: todayTasks.removeRows)
                 .onMove { indexSet, index in
                     todayTasks.tasks.move(fromOffsets: indexSet, toOffset: index)
                     todayTasks.save()
@@ -90,7 +86,8 @@ struct ContentView: View {
                                 .submitLabel(.done)
                                 .focused($inputFocus)
                                 .onSubmit {
-                                    addTask()
+                                    todayTasks.addTask(taskInput)
+                                    taskInput = ""
                                 }
                                 .padding(.leading)
                         }
@@ -147,95 +144,6 @@ struct ContentView: View {
             todayHeading
             Spacer()
             dateHeading
-        }
-    }
-    
-    // MARK: Intents
-    
-    func removeRows(at offsets: IndexSet) {
-        todayTasks.tasks.remove(atOffsets: offsets)
-        do {
-            let data = try JSONEncoder().encode(todayTasks.tasks)
-            UserDefaults.standard.set(data, forKey: "savedTasks")
-        } catch {
-            print("There was an error saving the removed task.")
-        }
-    }
-    
-    func deleteTask(_ task: Task) {
-        guard let indexToRemove = todayTasks.tasks.firstIndex(of: task) else { return }
-        todayTasks.tasks.remove(at: indexToRemove)
-        do {
-            let data = try JSONEncoder().encode(todayTasks.tasks)
-            UserDefaults.standard.set(data, forKey: "savedTasks")
-        } catch {
-            print("There was an error saving the removed task.")
-        }
-    }
-    
-    func addTask() {
-        guard taskInput != "" else { return }
-        
-        // Add task to TaskList task array and re-save to UserDefaults
-        let newTask = Task(name: taskInput)
-        todayTasks.addTask(newTask)
-        
-        taskInput = ""
-    }
-    
-    func completeTask(_ task: Task) {
-        // If the task was incomplete, marks as complete. If the task was complete, changes back to none.
-        let wasComplete = task.action == .complete
-        let updatedTask = Task(id: task.id, name: task.name, action: wasComplete ? .none : .complete)
-        
-        if let index = todayTasks.tasks.firstIndex(of: task) {
-            todayTasks.tasks[index] = updatedTask
-            todayTasks.save()
-        }
-    }
-
-    func markTaskInProgress(_ task: Task) {
-        let updatedTask = Task(id: task.id, name: task.name, action: .inProgress)
-        
-        if let index = todayTasks.tasks.firstIndex(of: task) {
-            todayTasks.tasks[index] = updatedTask
-            todayTasks.save()
-        }
-    }
-
-    func markTaskTonight(_ task: Task) {
-        let updatedTask = Task(id: task.id, name: task.name, action: .tonight)
-        
-        if let index = todayTasks.tasks.firstIndex(of: task) {
-            todayTasks.tasks[index] = updatedTask
-            todayTasks.save()
-        }
-    }
-
-    func markTaskTomorrow(_ task: Task) {
-        let updatedTask = Task(id: task.id, name: task.name, action: .tomorrow)
-        
-        if let index = todayTasks.tasks.firstIndex(of: task) {
-            todayTasks.tasks[index] = updatedTask
-            todayTasks.save()
-        }
-    }
-    
-    func markTaskEvent(_ task: Task) {
-        let updatedTask = Task(id: task.id, name: task.name, action: .event)
-        
-        if let index = todayTasks.tasks.firstIndex(of: task) {
-            todayTasks.tasks[index] = updatedTask
-            todayTasks.save()
-        }
-    }
-
-    func markTaskNoneAction(_ task: Task) {
-        let updatedTask = Task(id: task.id, name: task.name, action: .none)
-        
-        if let index = todayTasks.tasks.firstIndex(of: task) {
-            todayTasks.tasks[index] = updatedTask
-            todayTasks.save()
         }
     }
 }
