@@ -24,11 +24,12 @@ struct ContentView: View {
                             Circle()
                                 .stroke()
                                 .foregroundColor(.secondary)
-                                .frame(maxWidth: 32)
+                                .frame(width: 32)
                             ShapeForAction(action: task.action)
                         }
                         
                         Text(task.name)
+                            .font(Font.custom("Avenir", size: 17, relativeTo: .body))
                             .strikethrough(task.action == Action.complete)
                             .padding(.leading)
                     }
@@ -39,6 +40,11 @@ struct ContentView: View {
                         Button("Tomorrow") { markTaskTomorrow(task) }
                         Button("Event") { markTaskEvent(task) }
                         Button("To Do") { markTaskNoneAction(task) }
+                        Divider()
+                        Button(role: .destructive) { deleteTask(task) } label: {
+                            Text("Delete Task")
+                        }
+
                     }
                 }
                 .onDelete(perform: removeRows)
@@ -61,8 +67,9 @@ struct ContentView: View {
                                             .secondary
                                                 .opacity(1.0 - Double(todayTasks.tasks.count)/10)
                                         )
-                                        .frame(maxWidth: 32)
+                                        .frame(width: 32)
                                     Image(systemName: "plus")
+                                        .font(.system(size: 20))
                                         .foregroundColor(.white)
                                         .rotationEffect(inputFocus ? Angle(degrees: 45) : .zero)
                                         .animation(.default, value: inputFocus)
@@ -70,6 +77,7 @@ struct ContentView: View {
                             }
                             
                             TextField("Task \(todayTasks.tasks.count + 1)", text: $taskInput)
+                                .font(Font.custom("Avenir", size: 17, relativeTo: .body))
                                 .submitLabel(.done)
                                 .focused($inputFocus)
                                 .onSubmit {
@@ -85,8 +93,9 @@ struct ContentView: View {
                                         .opacity(1 - Double(index) / 10)
                                 )
                                 .foregroundColor(.secondary)
-                                .frame(maxWidth: 32)
+                                .frame(width: 32)
                             Text("Task \(index + 1)")
+                                .font(Font.custom("Avenir", size: 17, relativeTo: .body))
                                 .padding(.leading)
                                 
                         }
@@ -101,6 +110,7 @@ struct ContentView: View {
             .listStyle(.plain)
         }
         .padding()
+        .dynamicTypeSize(...DynamicTypeSize.accessibility1)
         .onAppear {
             todayTasks.fetchData()
         }
@@ -109,7 +119,7 @@ struct ContentView: View {
     
     var todayHeading: some View {
         Text("Today")
-            .font(.largeTitle)
+            .font(Font.custom("Avenir Heavy", size: 34, relativeTo: .largeTitle))
             .bold()
     }
     
@@ -119,8 +129,8 @@ struct ContentView: View {
             + " " + Date().formatted(Date.FormatStyle().month(.abbreviated))
             + " " + Date().formatted(Date.FormatStyle().day(.defaultDigits))
         )
-            .font(.callout)
-            .foregroundColor(.secondary)
+        .font(Font.custom("Avenir", size: 16, relativeTo: .callout))
+        .foregroundColor(.secondary)
     }
     
     var headerRow: some View {
@@ -131,8 +141,21 @@ struct ContentView: View {
         }
     }
     
+    // MARK: Intents
+    
     func removeRows(at offsets: IndexSet) {
         todayTasks.tasks.remove(atOffsets: offsets)
+        do {
+            let data = try JSONEncoder().encode(todayTasks.tasks)
+            UserDefaults.standard.set(data, forKey: "savedTasks")
+        } catch {
+            print("There was an error saving the removed task.")
+        }
+    }
+    
+    func deleteTask(_ task: Task) {
+        guard let indexToRemove = todayTasks.tasks.firstIndex(of: task) else { return }
+        todayTasks.tasks.remove(at: indexToRemove)
         do {
             let data = try JSONEncoder().encode(todayTasks.tasks)
             UserDefaults.standard.set(data, forKey: "savedTasks")
@@ -211,3 +234,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
