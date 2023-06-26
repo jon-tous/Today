@@ -36,8 +36,9 @@ struct ContentView: View {
                         Button(role: .destructive) { todayTasks.deleteTask(task) } label: { Text("Delete Task") }
                     }
                     .swipeActions(edge: .leading) {
-                        Button { todayTasks.completeTask(task) } label: { Text("Complete") }
-                            .tint(Color.secondary.adjustOpacity(forIndex: todayTasks.tasks.firstIndex(of: task) ?? 0))
+                        Button { task.action == .complete ? todayTasks.markTaskNoneAction(task) : todayTasks.completeTask(task) }
+                            label: { Text("Complete") }
+                                .tint(Color.secondary.adjustOpacity(forIndex: todayTasks.tasks.firstIndex(of: task) ?? 0))
                     }
                 }
                 .onDelete(perform: removeRows)

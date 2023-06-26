@@ -65,9 +65,7 @@ import Foundation
     }
     
     func completeTask(_ task: Task) {
-        // If the task was incomplete, marks as complete. If the task was complete, changes back to none.
-        let wasComplete = task.action == .complete
-        let updatedTask = Task(id: task.id, name: task.name, action: wasComplete ? .none : .complete)
+        let updatedTask = Task(id: task.id, name: task.name, action: .complete)
         update(task, to: updatedTask)
     }
 
