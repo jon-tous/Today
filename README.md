@@ -24,7 +24,8 @@ This tool evolved from my paper-and-pen system, based on how my brain works.
 I aimed to replicate the handful of symbols I found myself using (again, riffing on the [Analog](https://ugmonk.com/pages/analog) system) to track where I was at with each given task (see below). 
 It's meant to get out of the way and let you *do* your to-do's. 
 
-### Add Screenshot of symbols/descriptions here
+<img src="https://github.com/jdt1403/AnalogTodo/blob/main/Screenshots/today-all-actions.png" alt="Task status options" width="400"/>
+^Task status symbols and their descriptions. All custom SwiftUI shapes!
 
 ## Here's how the app currently looks
 ### Add walkthrough GIF here
