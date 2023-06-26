@@ -13,7 +13,7 @@
 		150C1E192A48D5A30022671F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C1E182A48D5A30022671F /* HeaderView.swift */; };
 		150C1E1B2A48DA110022671F /* EmptyTaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150C1E1A2A48DA110022671F /* EmptyTaskRowView.swift */; };
 		157E3F3629EED782006BA66C /* EventShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E3F3529EED782006BA66C /* EventShape.swift */; };
-		15DBBD6329EB2F6E004C3E9E /* AnalogTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD6229EB2F6E004C3E9E /* AnalogTodoApp.swift */; };
+		15DBBD6329EB2F6E004C3E9E /* TodayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD6229EB2F6E004C3E9E /* TodayApp.swift */; };
 		15DBBD6529EB2F6E004C3E9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBBD6429EB2F6E004C3E9E /* ContentView.swift */; };
 		15DBBD6729EB2F6F004C3E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DBBD6629EB2F6F004C3E9E /* Assets.xcassets */; };
 		15DBBD6A29EB2F6F004C3E9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DBBD6929EB2F6F004C3E9E /* Preview Assets.xcassets */; };
@@ -33,8 +33,8 @@
 		150C1E182A48D5A30022671F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		150C1E1A2A48DA110022671F /* EmptyTaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTaskRowView.swift; sourceTree = "<group>"; };
 		157E3F3529EED782006BA66C /* EventShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventShape.swift; sourceTree = "<group>"; };
-		15DBBD5F29EB2F6E004C3E9E /* AnalogTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnalogTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		15DBBD6229EB2F6E004C3E9E /* AnalogTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogTodoApp.swift; sourceTree = "<group>"; };
+		15DBBD5F29EB2F6E004C3E9E /* Today.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Today.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15DBBD6229EB2F6E004C3E9E /* TodayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayApp.swift; sourceTree = "<group>"; };
 		15DBBD6429EB2F6E004C3E9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15DBBD6629EB2F6F004C3E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15DBBD6929EB2F6F004C3E9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		15DBBD6029EB2F6E004C3E9E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15DBBD5F29EB2F6E004C3E9E /* AnalogTodo.app */,
+				15DBBD5F29EB2F6E004C3E9E /* Today.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				15DBBD7929EB6B80004C3E9E /* Info.plist */,
-				15DBBD6229EB2F6E004C3E9E /* AnalogTodoApp.swift */,
+				15DBBD6229EB2F6E004C3E9E /* TodayApp.swift */,
 				15DBBD7029EB331A004C3E9E /* Views */,
 				15DBBD7229EB333A004C3E9E /* ViewModels */,
 				15DBBD7129EB3329004C3E9E /* Models */,
@@ -134,8 +134,8 @@
 				15DBBD7F29EBB214004C3E9E /* TonightShape.swift */,
 				15DBBD8329EBB43C004C3E9E /* InProgressShape.swift */,
 				157E3F3529EED782006BA66C /* EventShape.swift */,
-				15DBBD8529EBBC94004C3E9E /* ShapeForAction.swift */,
 				150C1E122A4810520022671F /* PriorityShape.swift */,
+				15DBBD8529EBBC94004C3E9E /* ShapeForAction.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -143,9 +143,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		15DBBD5E29EB2F6E004C3E9E /* AnalogTodo */ = {
+		15DBBD5E29EB2F6E004C3E9E /* Today */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "AnalogTodo" */;
+			buildConfigurationList = 15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "Today" */;
 			buildPhases = (
 				15DBBD5B29EB2F6E004C3E9E /* Sources */,
 				15DBBD5C29EB2F6E004C3E9E /* Frameworks */,
@@ -155,9 +155,9 @@
 			);
 			dependencies = (
 			);
-			name = AnalogTodo;
+			name = Today;
 			productName = AnalogTodoClone;
-			productReference = 15DBBD5F29EB2F6E004C3E9E /* AnalogTodo.app */;
+			productReference = 15DBBD5F29EB2F6E004C3E9E /* Today.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -175,7 +175,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "AnalogTodo" */;
+			buildConfigurationList = 15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "Today" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -188,7 +188,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15DBBD5E29EB2F6E004C3E9E /* AnalogTodo */,
+				15DBBD5E29EB2F6E004C3E9E /* Today */,
 			);
 		};
 /* End PBXProject section */
@@ -220,7 +220,7 @@
 				15DBBD7E29EBB14A004C3E9E /* NoneShape.swift in Sources */,
 				157E3F3629EED782006BA66C /* EventShape.swift in Sources */,
 				15DBBD8429EBB43C004C3E9E /* InProgressShape.swift in Sources */,
-				15DBBD6329EB2F6E004C3E9E /* AnalogTodoApp.swift in Sources */,
+				15DBBD6329EB2F6E004C3E9E /* TodayApp.swift in Sources */,
 				150C1E172A48CEF40022671F /* View+CustomFont.swift in Sources */,
 				150C1E152A48C5F40022671F /* Color+AdjustOpacity.swift in Sources */,
 				15DBBD7C29EBAD95004C3E9E /* TomorrowShape.swift in Sources */,
@@ -281,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -335,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -357,6 +357,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnalogTodoClone/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Today;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -366,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.AnalogTodo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -386,6 +388,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnalogTodoClone/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Today;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -395,7 +399,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.AnalogTodo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jontoussaint.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -406,7 +410,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "AnalogTodo" */ = {
+		15DBBD5A29EB2F6E004C3E9E /* Build configuration list for PBXProject "Today" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15DBBD6B29EB2F6F004C3E9E /* Debug */,
@@ -415,7 +419,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "AnalogTodo" */ = {
+		15DBBD6D29EB2F6F004C3E9E /* Build configuration list for PBXNativeTarget "Today" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15DBBD6E29EB2F6F004C3E9E /* Debug */,

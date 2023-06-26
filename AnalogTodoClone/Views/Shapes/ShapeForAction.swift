@@ -1,6 +1,6 @@
 //
 //  ShapeForAction.swift
-//  AnalogTodo
+//  Today
 //
 //  Created by Jon Toussaint on 4/16/23.
 //
@@ -56,41 +56,68 @@ struct ShapeForAction_Previews: PreviewProvider {
             .frame(width: 32)
     }
     static var previews: some View {
-        VStack(spacing: 40) {
+        VStack(alignment: .leading, spacing: 40) {
 //        HStack(spacing: 20) {
-            ZStack {
-                ShapeForAction_Previews.underlyingCircle
-                ShapeForAction(action: .none)
+            HStack(spacing: 15) {
+                ZStack {
+                    ShapeForAction_Previews.underlyingCircle
+                    ShapeForAction(action: .none)
+                }
+                Text("To-Do")
+                    .customFont(relativeTo: .body)
             }
             
-            ZStack {
-                ShapeForAction_Previews.underlyingCircle
-                ShapeForAction(action: .inProgress)
+            
+            HStack(spacing: 15) {
+                ZStack {
+                    ShapeForAction_Previews.underlyingCircle
+                    ShapeForAction(action: .inProgress)
+                }
+                Text("In Progress")
+                    .customFont(relativeTo: .body)
             }
             
-            ZStack {
-                ShapeForAction_Previews.underlyingCircle
-                ShapeForAction(action: .tonight)
-            }
-
-            ZStack {
-                ShapeForAction_Previews.underlyingCircle
-                ShapeForAction(action: .tomorrow)
-            }
-            
-            ZStack {
-                ShapeForAction_Previews.underlyingCircle
-                ShapeForAction(action: .complete)
+            HStack(spacing: 15) {
+                ZStack {
+                    ShapeForAction_Previews.underlyingCircle
+                    ShapeForAction(action: .tonight)
+                }
+                Text("Tonight")
+                    .customFont(relativeTo: .body)
             }
             
-            ZStack {
-                ShapeForAction_Previews.underlyingCircle
-                ShapeForAction(action: .event)
+            HStack(spacing: 15) {
+                ZStack {
+                    ShapeForAction_Previews.underlyingCircle
+                    ShapeForAction(action: .tomorrow)
+                }
+                Text("Tomorrow")
+                    .customFont(relativeTo: .body)
             }
             
-            ZStack {
-                ShapeForAction_Previews.underlyingCircle
-                ShapeForAction(action: .priority)
+            HStack(spacing: 15) {
+                ZStack {
+                    ShapeForAction_Previews.underlyingCircle
+                    ShapeForAction(action: .complete)
+                }
+                Text("Complete")
+                    .customFont(relativeTo: .body)
+            }
+            
+            HStack(spacing: 15) {
+                ZStack {
+                    ShapeForAction_Previews.underlyingCircle
+                    ShapeForAction(action: .event)
+                }
+                Text("Event")
+            }
+            
+            HStack(spacing: 15) {
+                ZStack {
+                    ShapeForAction_Previews.underlyingCircle
+                    ShapeForAction(action: .priority)
+                }
+                Text("Priority")
             }
         }
     }
