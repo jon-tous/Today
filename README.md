@@ -24,15 +24,17 @@ This tool evolved from my paper-and-pen system, based on how my brain works.
 I aimed to replicate the handful of symbols I found myself using (again, riffing on the [Analog](https://ugmonk.com/pages/analog) system) to track where I was at with each given task (see below). 
 It's meant to get out of the way and let you *do* your to-do's. 
 
-<img src="https://github.com/jdt1403/AnalogTodo/blob/main/Screenshots/today-all-actions.png" alt="Task status options" width="350"/>
+<img src="https://github.com/jon-tous/Today/blob/main/Screenshots/today-all-actions.png" alt="Task status options" width="350"/>
 ^Task status symbols and their descriptions. All custom SwiftUI shapes!
 
 ## Here's how the app currently looks
-<img src="https://github.com/jdt1403/Today/blob/main/Screenshots/lightmode-demo-1.gif" alt="App demo" width="350">
+<img src="https://github.com/jon-tous/Today/blob/main/Screenshots/lightmode-demo-1.gif" alt="App demo" width="350">
+
+<img src="https://github.com/jon-tous/Today/blob/main/Screenshots/lightmode-swipeActions-demo.gif" alt="App demo 2" width="350">
 
 GIF created with [Kap](https://getkap.co/) for macOS
 
-<img src="https://github.com/jdt1403/Today/blob/main/Screenshots/lightmode-example-1.png" alt="light mode" width="200"> <img src="https://github.com/jdt1403/Today/blob/main/Screenshots/darkmode-example-1.png" alt="dark mode" width="200">
+<img src="https://github.com/jon-tous/Today/blob/main/Screenshots/lightmode-example-1.png" alt="light mode" width="200"> <img src="https://github.com/jon-tous/Today/blob/main/Screenshots/darkmode-example-1.png" alt="dark mode" width="200">
 
 ^Dark mode if you dare :)
 
